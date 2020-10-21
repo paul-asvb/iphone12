@@ -1,7 +1,6 @@
+![primo](/images/video-game.png)
 # primo
 cuting video with python
-
-![primo](/images/video-game.png)
 
 
 ## Development
