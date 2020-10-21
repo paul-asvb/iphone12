@@ -8,6 +8,7 @@ cuting video with python
 ```bash
 git clone https://github.com/paul-asvb/primo
 cd primo
+python3 -m venv primo
 source primo/bin/activate
 ```
 
