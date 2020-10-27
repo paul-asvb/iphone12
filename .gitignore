@@ -1,2 +1,6 @@
-primo
 .DS*
+.env
+node_modules
+videos
+snippets
+lists
