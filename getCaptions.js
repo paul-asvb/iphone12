@@ -5,8 +5,10 @@ module.exports = async function getSubtitle(videoID) {
     videoID
 
   }).then(function (captions) {
+    console.log(captions.length)
+    const cap = captions.filter(ele => (ele.text.includes("12") || ele.text.includes("iphone")))
     const obj = {}
-    obj[videoID] = captions
+    obj[videoID] = cap
     return obj
   });
 }
