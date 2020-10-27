@@ -1,14 +1,11 @@
 ![primo](/images/video-game.png)
 # primo
-cuting video with python    
+cuting video with js    
 
 
 ## Development
 ```bash
-git clone https://github.com/paul-asvb/primo
-cd primo
-python3 -m venv primo
-source primo/bin/activate
+todo
 ```
 
 ### Tributes
