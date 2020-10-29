@@ -1,29 +1,10 @@
-const getCaption = require("./getCaptions")
-const getList = require("./getVideoList")
-const fs = require('fs');
-const { reject } = require("async");
+const low = require('lowdb')
+const FileSync = require('lowdb/adapters/FileSync')
 
-async function fn() {
-  /*getList().then(videoList => {
-    console.log("MAIN", videoList.length)
-  })*/
+const adapter = new FileSync('db.json')
+const db = low(adapter)
 
-  const videoIDs = ["KR0g-1hnQPA", "65JrtwtTOdc", "fczSjmhIYnk", "Sx6dAx7dnXg", "A6PAVB39UXw", "9wJn6nOEr7Q",]
+// Set some defaults (required if your JSON file is empty)
+db.defaults({ captions: [] })
+  .write()
 
-  const captionPromises = videoIDs.map(videoIDs => {
-    return getCaption(videoIDs)
-  })
-
-  Promise.all(captionPromises).then(function (p) {
-    const data = JSON.stringify(p);
-    fs.writeFile('./lists/captions.json', data, (err) => {
-      if (err) {
-        throw err;
-      }
-      console.log("JSON data is saved.");
-    });
-  });
-
-}
-
-fn()

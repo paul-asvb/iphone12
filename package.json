@@ -8,6 +8,7 @@
     "dotenv": "^8.2.0",
     "fluent-ffmpeg": "^2.1.2",
     "googleapis": "^61.0.0",
+    "lowdb": "^1.0.0",
     "node-fetch": "^2.6.1",
     "nodemon": "^2.0.6",
     "youtube-captions-scraper": "^1.0.3",
