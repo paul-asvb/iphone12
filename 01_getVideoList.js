@@ -32,7 +32,7 @@ for (let i = 0; i < 10; i++) {
                 const items = response.data.items
                 items.forEach(e => {
                     // console.log(e)
-                    db.save("videolist", e)
+                  //  db.save("videolist", e)
                 })
             }
         }

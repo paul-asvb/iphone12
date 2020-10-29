@@ -1,14 +1,23 @@
 const subTitleScraper = require('youtube-captions-scraper');
+const db = require('./db.js')
+var _ = require('lodash');
 
-module.exports = async function getSubtitle(videoID) {
+const getSubtitle = (videoId) => {
   return subTitleScraper.getSubtitles({
-    videoID
+    videoId
 
   }).then(function (captions) {
     console.log(captions.length)
     const cap = captions.filter(ele => (ele.text.includes("12") || ele.text.includes("iphone")))
-    const obj = {}
-    obj[videoID] = cap
-    return obj
+    const obj = {
+      id: videoId,
+      items: cap
+    }
+    db.get('captions')
+      .push(obj)
+      .write()
   });
 }
+
+const captions = db.get('captions')
+  .value()
