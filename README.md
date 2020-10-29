@@ -4,6 +4,9 @@ cuting video with js
 
 
 ## Development
+## Development Prerequsitiy
+nodejs > v12
+
 ```bash
 todo
 ```

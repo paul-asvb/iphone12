@@ -1,5 +1,5 @@
-const getCaption = require("./getCaptions")
-const getList = require("./getVideoList")
+const getCaption = require("./02_getCaptions")
+const getList = require("./01_getVideoList")
 const fs = require('fs');
 const { reject } = require("async");
 
