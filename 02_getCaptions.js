@@ -18,6 +18,6 @@ const getSubtitle = (videoId) => {
       .write()
   });
 }
+const videoIds = videolist.map(e => e.id.videoId)
 
-const captions = db.get('captions')
-  .value()
+videoIds.forEach(e => getSubtitle(e))
