@@ -20,4 +20,4 @@ const getSubtitle = (videoId) => {
 }
 const videoIds = videolist.map(e => e.id.videoId)
 
-videoIds.forEach(e => getSubtitle(e))
+//videoIds.forEach(e => getSubtitle(e))
