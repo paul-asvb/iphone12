@@ -1,7 +1,14 @@
 const db = require('./db.js')
 var _ = require('lodash');
 
-const ids = db.get('videolist')
-  .value().map(c => c.id.videoId)
+const videoList = db.get('videolist')
+  .value()
 
-console.log(_.uniq(ids))
+const ids = videoList.map(c => c.id.videoId)
+
+ const uniqueVideoList =  _.uniqBy(videoList, 'id.videoId');
+
+
+
+console.log(videoList.length)
+console.log(_.uniq(ids).length)

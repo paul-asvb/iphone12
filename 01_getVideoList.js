@@ -11,11 +11,14 @@ const service = google.youtube({
     version: 'v3',
     auth: process.env.GOOGLE_TOKEN
 });
+const test = 0
 
+ let pageToken = "CBkQAA";
+// for (let i = 0; i < 10; i++) {
+    function search() {  
+        console.log("pageToken: ",pageToken)
 
-let pageToken = "";
-for (let i = 0; i < 10; i++) {
-    service.search.list({
+          service.search.list({
         q: "phone 12",
         part: 'snippet',
         order: "viewCount",
@@ -25,19 +28,24 @@ for (let i = 0; i < 10; i++) {
     }, function (err, response) {
         if (err) {
             console.error(err)
-            reject(err)
         } else {
+            const items = response.data.items
             pageToken = response.data.nextPageToken;
-            if (response.data.items.length > 0) {
-                const items = response.data.items
-                items.forEach(e => {
-                    // console.log(e)
+            if (items.length > 0) {
+        
+                console.log("pag: ",pageToken, " - itemlength: ",items.length)
 
+                items.forEach(e => {
                     db.get('videolist')
-                        .push(obj)
+                        .push(e)
                         .write()
                 })
             }
         }
     })
-}
+
+    }
+
+//}
+search();
+ setInterval(function(){ search(); }, 2000);
