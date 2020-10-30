@@ -1,23 +1,41 @@
 const subTitleScraper = require('youtube-captions-scraper');
 const db = require('./db.js')
-var _ = require('lodash');
 
-const getSubtitle = (videoId) => {
-  return subTitleScraper.getSubtitles({
-    videoId
-
+const getSubtitle = (vId) => {
+  console.log("getSubtitle: ",vId)
+  subTitleScraper.getSubtitles({
+    videoID:vId
   }).then(function (captions) {
-    console.log(captions.length)
+    // console.log(captions.length)
     const cap = captions.filter(ele => (ele.text.includes("12") || ele.text.includes("iphone")))
     const obj = {
-      id: videoId,
+      id: vId,
       items: cap
     }
-    db.get('captions')
+    if (cap.length>0){
+  db.get('captions')
       .push(obj)
       .write()
+    }
   });
 }
-const videoIds = videolist.map(e => e.id.videoId)
+
+const videoIds = db.get('videolist')
+.value().map(e => e.id.videoId)
+
+// console.log(videoIds)
+//
 
 //videoIds.forEach(e => getSubtitle(e))
+//getSubtitle("nzQ469WS9C8")
+
+const myCoolFunction = (arr, i) => {
+  const throttleTime = 1000 // in milliseconds
+  if (i < arr.length) {      
+    getSubtitle(arr[i]);
+    i++; 
+    setTimeout(myCoolFunction, throttleTime, arr, i);    
+  }  
+};
+
+myCoolFunction(videoIds, 0);
