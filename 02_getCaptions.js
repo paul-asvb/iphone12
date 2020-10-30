@@ -29,13 +29,3 @@ const videoIds = db.get('videolist')
 //videoIds.forEach(e => getSubtitle(e))
 //getSubtitle("nzQ469WS9C8")
 
-const myCoolFunction = (arr, i) => {
-  const throttleTime = 1000 // in milliseconds
-  if (i < arr.length) {      
-    getSubtitle(arr[i]);
-    i++; 
-    setTimeout(myCoolFunction, throttleTime, arr, i);    
-  }  
-};
-
-myCoolFunction(videoIds, 0);
