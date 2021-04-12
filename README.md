@@ -1,20 +1,10 @@
-![primo](/images/video-game.png)
-# primo
-cuting video with js    
+1. getting 1000 videos mentioning iphone12
+2. getting the transcripts of all videos
+3. extracting the time and duration of the phrase containing iphone12
+4. extracting the clips to single videos
 
+concating it and uploading it to youtube 
 
-## Development
-## Development Prerequsitiy
-nodejs > v12
+# Result
 
-```bash
-todo
-```
-
-### Tributes
-
-Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
-
-## Reminder
-
-https://pypi.org/project/youtube-transcript-api/
+https://www.youtube.com/watch?v=opZI2V_pRlw
